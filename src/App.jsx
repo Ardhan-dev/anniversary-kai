@@ -7,8 +7,8 @@ const stories = [
     date: "14 Maret 2026",
     day: "01",
     title: "The Start",
-    description: "First time kita ketemuan buat jogging di kotbar. Masih inget banget pas pertama kali bonceng kamu trus hug wkwk ❤️",
-    images: ["/images/jadian1.jpg", "/images/jadian2.jpg", "/images/jadian3.jpg", "/images/jadian4.jpg"],
+    description: "First time kita ketemuan buat jogging di kotbar. Masih inget banget pas pertama kali bonceng kamu trus ak di hug wkwk ❤️",
+    images: ["/images/jadian1.jpg", "/images/jadian2.jpg", "/images/jadian3.jpg", "/images/jdn5.jpg"],
     accent: "#e8a598",
     emoji: "🌅"
   },
@@ -16,7 +16,7 @@ const stories = [
     date: "16 Maret 2026",
     day: "02",
     title: "First Kiss!!!",
-    description: "Inget ga kita di IKEA. Trus umm curi curi kiss and that's also first time we kissin (IN PUBLIC PLACES?!)",
+    description: "Inget ga kita lagi jalan trus iseng mau ke IKEA. Trus kita keliling dan coba curi curi kiss and that's also first time we kissin (LANGSUNG IN PUBLIC PLACES?!) dan pulang nya makan pop mie di Yomart xixi",
     images: ["/images/jadian4.jpg", "/images/jadian5.jpg", "/images/foto (7).jpg", "/images/foto (8).jpg"],
     accent: "#d4a373",
     emoji: "💋"
@@ -25,8 +25,8 @@ const stories = [
     date: "18 Maret 2026",
     day: "03",
     title: "VIDEO CALL!!",
-    description: "Kamu sama CC bukber trus kita vidcall, trus ketemuan di tagog dan pulang bareng ke rumah kamu",
-    images: ["/images/jadian4.jpg", "/images/jadian5.jpg", "/images/foto (7).jpg", "/images/foto (8).jpg"],
+    description: "Kamu sama CC bukber trus kita vidcall (KAMU CANTIK BANGET FAK), trus kamu anter CC pulang dan kita akhirnya ketemuan di tagog dan pulang bareng ke rumah kamu",
+    images: ["/images/vc1.jpg", "/images/vc2.jpg", "/images/vc3.jpg", "/images/vc4.jpg"],
     accent: "#b5c4b1",
     emoji: "📱"
   },
@@ -34,8 +34,8 @@ const stories = [
     date: "25 Maret 2026",
     day: "04",
     title: "FIRST FLOWER!",
-    description: "First time dalam hidup aku giving flowers, and u are the first girl ever! and hope it's the last (beside my mom and our future daughter)",
-    images: ["/images/bunga1.jpg", "/images/jadian.jpg", "/images/foto (7).jpg", "/images/foto (8).jpg"],
+    description: "Malem itu aku bener bener lagi kebucinan sama kamu, then i saw florist man di alun-alun dan langsung ke rumah mbah kamu buat ngasih bunga and chocolate ke kamu, First time dalam hidup aku giving flowers, and u are the first girl ever! and hope it's the last (beside my mom and our future daughter)",
+    images: ["/images/bunga1.jpg"],
     accent: "#f2b5d4",
     emoji: "🌹"
   },
@@ -43,7 +43,7 @@ const stories = [
     date: "26 Maret 2026",
     day: "05",
     title: "NIGHT DATE",
-    description: "Kamu pulang dari rumah mbah trus mau ketemuan sama cc tapi cc gajadi dateng dan akhirnya ak nyusul sama nimo haha",
+    description: "Kamu pulang dari rumah mbah trus mau ketemuan sama cc dan kita ketemuan di yomart, trus kita tinggalin nimo buat ngebucin di mobil hahaha. (KISSIN IN CAR TOO?!)",
     images: ["/images/n2.jpg", "/images/n3.jpg", "/images/n4.jpg", "/images/n5.jpg"],
     accent: "#8b9dc3",
     emoji: "🌙"
@@ -52,8 +52,8 @@ const stories = [
     date: "27 Maret 2026",
     day: "06",
     title: "FREAKY!",
-    description: "Tengah malem ak ke rmh kamu and we make out for the first time.... crazy",
-    images: ["/images/f1.jpeg", "/images/jadian5.jpg", "/images/foto (7).jpg", "/images/foto (8).jpg"],
+    description: "Beberapa jam setelah nya, ak ke rumah kamu karena KANGEN???! trus mancing mancing ya masuk ke kamar, tau nya beneran ke kamar and we MAKE OUT FOR THE FIRST TIME??! (masih keinget jelas di pikiran aku)",
+    images: ["/images/f1.jpeg"],
     accent: "#c9a0a0",
     emoji: "🔥"
   },
@@ -61,8 +61,8 @@ const stories = [
     date: "29 Maret 2026",
     day: "07",
     title: "PHOTOBOOTH",
-    description: "Kita ke gacoan then Tiramisusu dan Lawson trus ke Pasar Kota Baru, and our first photobooth (kissin)",
-    images: ["/images/pb1.jpeg", "/images/pb2.jpg", "/images/pb3.jpg", "/images/pb4.jpg"],
+    description: "Kita ke gacoan, tiramisusu (urusan nimo sih) trus ke Lawson then ke Pasar Kotbar. Photobooth pertama kita and KISSIN??!! (kamu berani bgt sumpah) tapi suka :b",
+    images: ["/images/pb1.jpeg", "/images/pb2.jpeg", "/images/pb3.jpeg", "/images/pb4.jpeg"],
     accent: "#d4b896",
     emoji: "📸"
   },
@@ -70,7 +70,7 @@ const stories = [
     date: "2 April 2026",
     day: "08",
     title: "HUJAN-HUJANAN",
-    description: "Kita have something to talk trus ke kotbar malem-malem, HUJAN HUJANAN PULANG NYA MANA KM YG NYETIR HAHA",
+    description: "Kita have something to talk trus ke kotbar malem-malem, some deeptalk (?) dan pulang nya hujan hujanan. Kamu yang nyetir haha (takut gweh)",
     images: ["/images/hujan1.webp", "/images/jadian5.jpg", "/images/foto (7).jpg", "/images/foto (8).jpg"],
     accent: "#9bb5c9",
     emoji: "🌧️"
@@ -79,7 +79,7 @@ const stories = [
     date: "7 April 2026",
     day: "09",
     title: "BASO!",
-    description: "First time ke tempat bakso yang kata kamu enak, dan bener.... ENAK BGT MANA MURAH LAGI",
+    description: "First time ke tempat bakso yang kata kamu enak, dan bener.... ENAK BGT MANA MURAH LAGI. Tapi kamu ga mau makan urat/cincang zzzzz ",
     images: ["/images/baso1.jpg", "/images/baso2.jpg", "/images/baso3.jpg", "/images/foto (8).jpg"],
     accent: "#c4956a",
     emoji: "🍜"
@@ -87,18 +87,82 @@ const stories = [
   {
     date: "12 April 2026",
     day: "10",
-    title: "JADIAN!!!",
-    description: "First time ke rumah aku dan kita berdua aja... trus KITA JADIAN! (ak masih inget kita lagi di kasur tiduran pas ak ngajak jadian haha). Abis itu masak bareng — ayam dadu + udang, kacau tapi enak.",
+    title: "OFFICIAL!",
+    description: "First time ke rumah aku dan kita quality time berdua, then setelah nya aku ngajak jadian dan kamu mau HAHAHA. Trus kita masak ayam dadu + udang tepung barenggg (kenapa kita ga serumah aja sih)",
     images: ["/images/rmh1.jpg", "/images/rmh2.jpg", "/images/baso3.jpg", "/images/foto (8).jpg"],
     accent: "#e8c4a0",
     emoji: "🏠"
   },
   {
-    date: "5 Mei 2026",
+    date: "14 April 2026",
     day: "11",
+    title: "IKA GOES TO CAMPUS!",
+    description: "Ayankk ak baru pulang shift malem trus bobo, ak ajakin ke kampus dan ternyata mau!. First time ayankk aku ke kampus, cakep bgt jir (temen temen ak sampe kek maneh nyari fine shyt dimana dhan) makasih yaaa udah nemenin aku uts hehe trus pulang nya ke mixue!",
+    images: ["/images/cmpz1.jpg", "/images/cmpz2.jpg", "/images/cmpz3.jpg", "/images/cmpz4.jpg"],
+    accent: "#e8c4a0",
+    emoji: "🏠"
+  },
+  {
+    date: "19 April 2026",
+    day: "12",
+    title: "LUNCH!",
+    description: "aku bikin kamu bekel, ternyata diajakin mam sekeluarga sama mama kamu haha (jujur malu bgt) tp enjoy sih trus masakan mama kamu enak bgtttt",
+    images: ["/images/lunch1.jpg", "/images/lunch2.jpg", "/images/lunch3.jpeg", "/images/lunch4.jpg"],
+    accent: "#e8c4a0",
+    emoji: "🏠"
+  },
+  {
+    date: "26 April 2026",
+    day: "13",
+    title: "PAST NIGHT TIME",
+    description: "Kita nonton The Lords of the rings dan ketiduran, ak pulang pulang jam 2 - 3 malem (bener bener ganti hari masih di rumah kamu duh)",
+    images: ["/images/bobo1.jpg", "/images/bobo2.jpg", "/images/bobo3.jpg", "/images/bobo4.jpg"],
+    accent: "#e8c4a0",
+    emoji: "🏠"
+  },
+  {
+    date: "27 April 2026",
+    day: "14",
+    title: "SLEEP",
+    description: "Ayankk aku first time main gta v, trus kita bobo holding hands dan ketahuan (?) haha",
+    images: ["/images/sl1.jpg", "/images/sl2.jpg", "/images/sl3.jpg", "/images/sl4.jpg"],
+    accent: "#e8c4a0",
+    emoji: "🏠"
+  },
+  {
+    date: "28 April 2026",
+    day: "15",
+    title: "GOT CAUGHT",
+    description: "We cuddle tapi ketahuan T_T",
+    images: ["/images/wk1.jpg", "/images/wk2.jpg", "/images/wk3.jpg", "/images/wk4.jpeg"],
+    accent: "#e8c4a0",
+    emoji: "🏠"
+  },
+  {
+    date: "4 Mei 2026",
+    day: "16",
+    title: "Happy Ika",
+    description: "I gave u some flowers and dimsum and u liked it! HAHA LOVE BGT SAYANG (ak ga dibolehin pegang bunga nya jir) ",
+    images: ["/images/bu1.jpg", "/images/bu2.jpg", "/images/bu3.jpg", "/images/bu5.jpg"],
+    accent: "#e8c4a0",
+    emoji: "🏠"
+  },
+
+  {
+    date: "5 Mei 2026",
+    day: "17",
     title: "PASCAL DATE",
-    description: "Sayang pake dress hitam baru trus pake pita pink di kepala nya (LUCU BGT FAK) — ketemuan di st cikudapateuh, ke wisuda temen, trus jalan ke PASKAL!",
-    images: ["/images/baso1.jpg", "/images/baso2.jpg", "/images/baso3.jpg", "/images/foto (8).jpg"],
+    description: "Sayang pake dress hitam baru trus pake pita pink di kepala nya (LUCU BGT FAK) SAMBIL BAWA BUNGAAAAA (CANTIK BGT JIR) disitu ak bener bener senyum mulu liat kamu wkwkwk.Trus kita ke wisuda temen kamu yaa gerimis dulu sih pas sampe, trus foto foto dan akhirnya ke PASCAL buat nonton film, mana duduknya di sweetbox (sambil cuddle). Pulang nya ke rumah mbah dan disuruh suruh sedikit awikwok. Jujur hari itu berkesan banget (Pretty GF + Pretty Flower + Whole day together) LOVE LOVE LOVE BGT",
+    images: ["/images/bb1.jpg", "/images/bb2.jpg", "/images/bb3.jpg", "/images/bb4.jpg"],
+    accent: "#f0c4d4",
+    emoji: "🎀"
+  },
+  {
+    date: "10 Mei 2026",
+    day: "18",
+    title: "QUALITY TIME",
+    description: "Kita 2 hari kebelakang ketemu nya cuman sejam dan itu nganter kamu dan jemput kamu doang, then we spend time cuman berdua and get freaky (masih kebayang) dan melepas kangen (?) HAHA (she's got the video)",
+    images: ["/images/qq1.jpg", "/images/qq2.jpg", "/images/qq3.jpg", "/images/qq4.jpg"],
     accent: "#f0c4d4",
     emoji: "🎀"
   }
@@ -1362,7 +1426,7 @@ function VideoSection() {
           color: '#2e2218',
           margin: 0, fontWeight: 700,
         }}>
-          🎬 vlog kita
+          🎬vlog
         </h2>
         <div style={{ width: '40px', height: '2.5px', background: '#e8a598', margin: '12px auto 0', borderRadius: '2px' }} />
       </div>
@@ -1515,7 +1579,7 @@ function HeroSection({ isPlaying, onToggle }) {
           fontSize: '1rem', color: '#b8a090',
           margin: '0 0 10px', opacity: 0.75,
         }}>
-          catetan buat kamu ☁️
+          Let's rewind this whole month ☁️
         </p>
 
         <h1 style={{
@@ -1542,7 +1606,7 @@ function HeroSection({ isPlaying, onToggle }) {
           color: '#7a6858',
           letterSpacing: '0.05em',
         }}>
-          satu bulan pertama yang gak bakal dilupain 🌸
+          OUR FIRST MONTH IN RELATIONSHIP 🌸
         </p>
 
         <div style={{ marginTop: '44px', display: 'flex', gap: '12px', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -1576,7 +1640,7 @@ function HeroSection({ isPlaying, onToggle }) {
           overflow: 'hidden',
         }}>
           {[
-            { n: '11', l: 'momen' },
+            { n: '18', l: 'momen' },
             { n: '~1 bln', l: 'bareng' },
             { n: '∞', l: 'kenangan' },
           ].map((s, i) => (
@@ -1718,7 +1782,7 @@ export default function App() {
               color: '#c4956a',
               margin: '0 0 12px',
             }}>
-              ini baru permulaan ya sayang 🌸
+              it's only just the beginning baby
             </p>
             <div style={{
               height: '2px', width: '50px',
