@@ -85,28 +85,35 @@ function App() {
     subtitle: { letterSpacing: '0.4em', fontSize: '10px', textTransform: 'uppercase', opacity: 0.5, marginTop: '10px', color: '#f472b6' },
     main: { maxWidth: '1000px', margin: '0 auto', padding: '0 20px' },
     storyRow: (idx) => ({
-      display: 'flex',
-      flexDirection: window.innerWidth < 768 ? 'column' : (idx % 2 === 0 ? 'row' : 'row-reverse'),
-      alignItems: 'center',
-      gap: '50px',
-      marginBottom: '120px',
-      justifyContent: 'center'
+    display: 'flex',
+    // Tetap gunakan column di HP agar foto tidak gepeng, tapi arah urutannya bisa dibalik
+    flexDirection: window.innerWidth < 768
+    ? (idx % 2 === 0 ? 'column' : 'column-reverse')
+    : (idx % 2 === 0 ? 'row' : 'row-reverse'),
+    alignItems: 'center',
+    gap: window.innerWidth < 768 ? '20px' : '60px',
+    marginBottom: '100px',
+    justifyContent: 'center'
     }),
     photoBox: (idx) => ({
-      width: '320px',
-      backgroundColor: '#1a1a1a',
-      padding: '12px',
-      borderRadius: '8px',
-      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
-      transform: window.innerWidth < 768 ? 'rotate(0deg)' : (idx % 2 === 0 ? 'rotate(1.5deg)' : 'rotate(-1.5deg)'),
-      border: '1px solid #27272a'
+    width: window.innerWidth < 768 ? '280px' : '320px',
+    backgroundColor: '#1a1a1a',
+    padding: '12px',
+    borderRadius: '8px',
+    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+    // Di HP kita kasih rotasi tipis saja agar tetap estetik
+    transform: idx % 2 === 0 ? 'rotate(1.5deg)' : 'rotate(-1.5deg)',
+    border: '1px solid #27272a'
     }),
     grid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' },
     photoItem: { height: '160px', overflow: 'hidden', borderRadius: '4px', cursor: 'pointer', backgroundColor: '#222' },
-    textBox: (idx) => ({ 
-      flex: 1, 
-      textAlign: window.innerWidth < 768 ? 'center' : (idx % 2 === 0 ? 'left' : 'right'), 
-      minWidth: '300px' 
+    textBox: (idx) => ({
+    flex: 1,
+    textAlign: window.innerWidth < 768
+    ? (idx % 2 === 0 ? 'left' : 'right')
+    : (idx % 2 === 0 ? 'left' : 'right'),
+    minWidth: '300px',
+    padding: '0 10px'
     }),
     date: { fontSize: '12px', fontWeight: 'bold', color: '#f472b6', letterSpacing: '3px', textTransform: 'uppercase' },
     storyTitle: { fontSize: '2.5rem', fontWeight: 'bold', margin: '15px 0', color: '#fff' },
