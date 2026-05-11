@@ -46,89 +46,91 @@ function App() {
   const audioRef = useRef(null);
 
   const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
+    if (isPlaying) { audioRef.current.pause(); } 
+    else { audioRef.current.play(); }
     setIsPlaying(!isPlaying);
   };
 
   const styles = {
-    container: { backgroundColor: '#0a0a0a', minHeight: '100vh', color: '#e4e4e7', fontFamily: 'serif', overflowX: 'hidden' },
-    header: { height: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px', position: 'relative', zIndex: 2 },
-    title: { fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', fontWeight: 'bold', fontStyle: 'italic', margin: 0, color: '#fff' },
-    subtitle: { letterSpacing: '0.4em', fontSize: '10px', textTransform: 'uppercase', opacity: 0.5, marginTop: '10px', color: '#f472b6' },
-    
-    // Gradient Background Wrapper per Chapter
+    container: { 
+      backgroundColor: '#e8e2d2', 
+      minHeight: '100vh', 
+      color: '#4a4435', 
+      fontFamily: 'serif', 
+      overflowX: 'hidden' 
+    },
+    header: { 
+      height: '60vh', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      textAlign: 'center', 
+      padding: '0 20px' 
+    },
     storySection: (idx) => ({
       width: '100%',
-      padding: '100px 0',
-      // Memberikan gradasi halus yang bergantian arahnya mengikuti zigzag
+      padding: '120px 0',
+      // Gradasi lebih kontras untuk memisahkan chapter
       background: idx % 2 === 0 
-        ? 'linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(24,24,27,0.5) 100%)' 
-        : 'linear-gradient(270deg, rgba(10,10,10,1) 0%, rgba(24,24,27,0.5) 100%)',
-      borderTop: '1px solid rgba(255,255,255,0.03)',
-      borderBottom: '1px solid rgba(255,255,255,0.03)',
+        ? 'linear-gradient(180deg, rgba(215,204,180,0) 0%, rgba(215,204,180,0.8) 50%, rgba(215,204,180,0) 100%)' 
+        : 'transparent',
+      borderTop: '1px solid rgba(74,68,53,0.1)',
     }),
-    
     main: { maxWidth: '1000px', margin: '0 auto', padding: '0 20px' },
     storyRow: (idx) => ({
       display: 'flex',
+      // Mobile tetap zig-zag via tumpukan vertikal yang bergantian
       flexDirection: window.innerWidth < 768 
         ? (idx % 2 === 0 ? 'column' : 'column-reverse') 
         : (idx % 2 === 0 ? 'row' : 'row-reverse'),
       alignItems: 'center',
-      gap: '50px',
+      gap: '60px',
       justifyContent: 'center'
     }),
     photoBox: (idx) => ({
-      width: window.innerWidth < 768 ? '280px' : '320px',
-      backgroundColor: '#1a1a1a',
-      padding: '12px',
-      borderRadius: '8px',
-      boxShadow: '0 30px 60px rgba(0,0,0,0.8)',
-      transform: idx % 2 === 0 ? 'rotate(2deg)' : 'rotate(-2deg)',
-      border: '1px solid rgba(255,255,255,0.05)'
+      width: window.innerWidth < 768 ? '290px' : '340px',
+      backgroundColor: '#f9f7f2', // Putih kertas foto lama
+      padding: '12px 12px 40px 12px', // Khas Polaroid (bawah lebar)
+      boxShadow: '10px 10px 25px rgba(0,0,0,0.15)',
+      transform: idx % 2 === 0 ? 'rotate(-2deg)' : 'rotate(3deg)',
+      border: '1px solid rgba(0,0,0,0.05)',
     }),
-    grid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' },
-    photoItem: { height: '160px', overflow: 'hidden', borderRadius: '4px', cursor: 'pointer', backgroundColor: '#222' },
+    grid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' },
+    photoItem: { 
+      height: '140px', 
+      overflow: 'hidden', 
+      backgroundColor: '#ddd',
+      boxShadow: 'inset 0 0 10px rgba(0,0,0,0.1)' 
+    },
     textBox: (idx) => ({ 
       flex: 1, 
-      textAlign: window.innerWidth < 768 ? (idx % 2 === 0 ? 'left' : 'right') : (idx % 2 === 0 ? 'left' : 'right'), 
-      minWidth: '300px' 
+      // Zig-zag teks di mobile (kiri/kanan)
+      textAlign: window.innerWidth < 768 
+        ? (idx % 2 === 0 ? 'left' : 'right') 
+        : (idx % 2 === 0 ? 'left' : 'right'),
+      padding: '20px'
     }),
-    date: { fontSize: '11px', fontWeight: 'bold', color: '#f472b6', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px', display: 'block' },
-    storyTitle: { fontSize: '2.5rem', fontWeight: 'bold', margin: '10px 0', color: '#fff' },
-    description: { fontStyle: 'italic', lineHeight: '1.8', opacity: 0.6, fontSize: '1.1rem' }
+    storyTitle: { fontSize: '2.8rem', fontWeight: 'bold', color: '#3a3528', marginBottom: '15px' },
+    description: { fontStyle: 'italic', lineHeight: '1.8', opacity: 0.8, fontSize: '1.15rem' }
   };
 
   return (
     <div style={styles.container}>
-      
       <header style={styles.header}>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
-          <h1 style={styles.title}>Mahesa & Ika</h1>
-          <p style={styles.subtitle}>Our First Month Archive</p>
-
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.5 }}>
+          <h1 style={{ fontSize: 'clamp(3rem, 10vw, 5rem)', fontStyle: 'italic', margin: 0 }}>Mahesa & Ika</h1>
+          <p style={{ letterSpacing: '0.5em', fontSize: '12px', textTransform: 'uppercase', opacity: 0.6 }}>The Memory Journal</p>
+          
           <div style={{ marginTop: '40px' }}>
             <audio ref={audioRef} src="/kita.mp3" loop />
-            <button 
-              onClick={togglePlay}
-              style={{
-                backgroundColor: isPlaying ? '#f472b6' : 'transparent',
-                border: '1px solid #f472b6',
-                color: isPlaying ? '#fff' : '#f472b6',
-                padding: '12px 35px',
-                borderRadius: '30px',
-                fontSize: '11px',
-                fontWeight: 'bold',
-                letterSpacing: '2px',
-                cursor: 'pointer',
-                textTransform: 'uppercase'
-              }}
-            >
-              {isPlaying ? 'PAUSE MUSIC ⏸' : 'PLAY OUR SONG 🎵'}
+            <button onClick={togglePlay} style={{
+              backgroundColor: '#4a4435', color: '#e8e2d2', border: 'none',
+              padding: '12px 40px', borderRadius: '4px', fontSize: '11px',
+              fontWeight: 'bold', letterSpacing: '2px', cursor: 'pointer',
+              textTransform: 'uppercase', boxShadow: '5px 5px 15px rgba(0,0,0,0.2)'
+            }}>
+              {isPlaying ? 'PAUSE JOURNAL ⏸' : 'OPEN JOURNAL 🎵'}
             </button>
           </div>
         </motion.div>
@@ -140,11 +142,11 @@ function App() {
             <div style={styles.main}>
               <div style={styles.storyRow(idx)}>
                 
-                {/* Photo Side */}
+                {/* Polaroid Frame Side */}
                 <motion.div 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  initial={{ opacity: 0, y: 50 }} 
-                  viewport={{ once: true }}
+                  whileInView={{ opacity: 1, scale: 1 }} 
+                  initial={{ opacity: 0, scale: 0.9 }} 
+                  viewport={{ once: true }} 
                   style={styles.photoBox(idx)}
                 >
                   <div style={styles.grid}>
@@ -152,24 +154,31 @@ function App() {
                       <div key={i} onClick={() => setSelectedImg(img)} style={styles.photoItem}>
                         <img 
                           src={img} 
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }} 
-                          onMouseOver={e => e.currentTarget.style.opacity = 1}
-                          onMouseOut={e => e.currentTarget.style.opacity = 0.7}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.2)' }} 
                           alt="memori" 
                         />
                       </div>
                     ))}
                   </div>
+                  <p style={{ 
+                    textAlign: 'center', 
+                    fontSize: '11px', 
+                    marginTop: '15px', 
+                    fontFamily: 'monospace', 
+                    opacity: 0.5,
+                    letterSpacing: '1px'
+                  }}>
+                    Recorded on: {story.date}
+                  </p>
                 </motion.div>
 
-                {/* Text Side */}
+                {/* Narrative Side */}
                 <motion.div 
                   whileInView={{ opacity: 1, x: 0 }} 
                   initial={{ opacity: 0, x: idx % 2 === 0 ? 50 : -50 }} 
-                  viewport={{ once: true }}
+                  viewport={{ once: true }} 
                   style={styles.textBox(idx)}
                 >
-                  <span style={styles.date}>{story.date}</span>
                   <h2 style={styles.storyTitle}>{story.title}</h2>
                   <p style={styles.description}>"{story.description}"</p>
                 </motion.div>
@@ -183,24 +192,40 @@ function App() {
       <AnimatePresence>
         {selectedImg && (
           <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setSelectedImg(null)}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} 
+            onClick={() => setSelectedImg(null)} 
             style={{ 
-              position: 'fixed', inset: 0, zIndex: 100, backgroundColor: 'rgba(0,0,0,0.98)', 
+              position: 'fixed', inset: 0, zIndex: 100, 
+              backgroundColor: 'rgba(58,53,40,0.98)', 
               display: 'flex', alignItems: 'center', justifyContent: 'center', 
-              padding: '20px', backdropFilter: 'blur(10px)' 
+              padding: '20px', backdropFilter: 'blur(5px)' 
             }}
           >
-            <img src={selectedImg} style={{ maxWidth: '95%', maxHeight: '95%', objectFit: 'contain', borderRadius: '4px' }} alt="zoom" />
-            <button style={{ position: 'absolute', top: '30px', right: '30px', color: 'white', border: 'none', background: 'none', fontSize: '30px', cursor: 'pointer', opacity: 0.5 }}>✕</button>
+            <img 
+              src={selectedImg} 
+              style={{ 
+                maxWidth: '90%', maxHeight: '90%', 
+                objectFit: 'contain', 
+                border: '12px solid #fff', 
+                boxShadow: '0 0 50px rgba(0,0,0,0.5)' 
+              }} 
+              alt="zoom" 
+            />
+            <button style={{ 
+              position: 'absolute', top: '30px', right: '30px', 
+              color: 'white', border: 'none', background: 'none', 
+              fontSize: '30px', cursor: 'pointer' 
+            }}>✕</button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <footer style={{ textAlign: 'center', opacity: 0.2, fontSize: '9px', letterSpacing: '5px', padding: '100px 0' }}>
-        MAHESA & IKA • 2026
+      <footer style={{ 
+        textAlign: 'center', opacity: 0.4, fontSize: '10px', 
+        letterSpacing: '5px', padding: '120px 0', textTransform: 'uppercase' 
+      }}>
+        Mahesa & Ika • The First Month Archive • 2026
       </footer>
-
     </div>
   );
 }
