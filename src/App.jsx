@@ -586,7 +586,7 @@ function PhotoPuzzle({ onComplete }) {
         {isLoading 
           ? 'Nyiapin puzzle... 🎨' 
           : solved 
-            ? 'Puzzle selesai! Bunga bermekaran! 🌸' 
+            ? 'Selesaikan Puzzle nya!' 
             : 'Susun puzzle nya! Klik dua piece buat tuker posisi'}
       </p>
 
@@ -718,8 +718,338 @@ function PhotoPuzzle({ onComplete }) {
   );
 }
 
-#buket bunga
 
+// Rose Bouquet Component - FIXED (MAWAR PASTI MUNCUL)
+function RoseBouquet({ show, onClose }) {
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    if (show) {
+      // Reset dulu
+      setShowContent(false);
+      
+      // Baru tampilin setelah mount
+      const timer = setTimeout(() => setShowContent(true), 200);
+      
+      // Confetti burst berkala
+      const confettiInterval = setInterval(() => {
+        confetti({
+          particleCount: 25,
+          spread: 50,
+          origin: { y: 0.3, x: Math.random() * 0.5 + 0.25 },
+          colors: ['#ffb6c1', '#ff6b6b', '#ffffff', '#f8bbd0', '#ffd93d', '#a5d6a7'],
+          shapes: ['circle', 'heart'],
+          scalar: 0.7,
+          gravity: 0.7,
+          ticks: 120,
+        });
+      }, 1000);
+      
+      const stopConfetti = setTimeout(() => clearInterval(confettiInterval), 6000);
+      
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(stopConfetti);
+        clearInterval(confettiInterval);
+      };
+    }
+  }, [show]);
+
+  if (!show) return null;
+
+  // Posisi rapi 10 mawar
+  const roses = [
+    { emoji: '🌹', x: 50, y: 12, s: '52px', r: -5, d: 0 },
+    { emoji: '🌸', x: 28, y: 22, s: '44px', r: -18, d: 0.25 },
+    { emoji: '🌹', x: 72, y: 22, s: '44px', r: 15, d: 0.5 },
+    { emoji: '🌷', x: 15, y: 35, s: '40px', r: -28, d: 0.75 },
+    { emoji: '🌺', x: 40, y: 33, s: '46px', r: -6, d: 1 },
+    { emoji: '🌹', x: 60, y: 33, s: '46px', r: 10, d: 1.25 },
+    { emoji: '🌸', x: 85, y: 38, s: '38px', r: 30, d: 1.5 },
+    { emoji: '🌼', x: 22, y: 48, s: '38px', r: -20, d: 1.75 },
+    { emoji: '🌹', x: 50, y: 50, s: '44px', r: 3, d: 2 },
+    { emoji: '💮', x: 78, y: 50, s: '38px', r: 25, d: 2.25 },
+  ];
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
+        onClick={onClose}
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 9000,
+          background: 'rgba(0,0,0,0.8)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backdropFilter: 'blur(8px)',
+          padding: '20px',
+        }}
+      >
+        {/* Buket */}
+        <motion.div
+          initial={{ scale: 0, rotate: -20 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: 'spring', stiffness: 90, damping: 14, delay: 0.1 }}
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            position: 'relative',
+            width: 'min(75vw, 340px)',
+            height: 'min(85vw, 400px)',
+          }}
+        >
+          {/* Background buket */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(ellipse at 50% 70%, #faf3e8 0%, #efe4d4 55%, #e0d2bd 100%)',
+            borderRadius: '48% 48% 44% 44% / 55% 55% 42% 42%',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.35), inset 0 0 50px rgba(255,220,200,0.25)',
+          }} />
+
+          {/* Bunga-bunga — SELALU MUNCUL kalau show true */}
+          {roses.map((rose, i) => (
+            <motion.div
+              key={i}
+              initial={{ scale: 0, opacity: 0, y: 40 }}
+              animate={showContent ? { 
+                scale: 1, 
+                opacity: 1, 
+                y: 0,
+                rotate: [rose.r, rose.r + 4, rose.r - 3, rose.r]
+              } : {}}
+              transition={showContent ? {
+                delay: rose.d,
+                type: 'spring',
+                stiffness: 160,
+                damping: 13,
+                rotate: {
+                  delay: rose.d + 1,
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  ease: 'easeInOut'
+                }
+              } : {}}
+              whileHover={showContent ? { scale: 1.35, zIndex: 10 } : {}}
+              style={{
+                position: 'absolute',
+                left: `${rose.x}%`,
+                top: `${rose.y}%`,
+                transform: 'translate(-50%, -50%)',
+                fontSize: rose.s,
+                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+                zIndex: 2,
+                cursor: 'default',
+              }}
+            >
+              {rose.emoji}
+            </motion.div>
+          ))}
+
+          {/* Daun kiri */}
+          <motion.span
+            initial={{ opacity: 0, scale: 0 }}
+            animate={showContent ? { opacity: 0.5, scale: 1 } : {}}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            style={{
+              position: 'absolute',
+              left: '3%',
+              top: '42%',
+              fontSize: '38px',
+              transform: 'rotate(-45deg)',
+              zIndex: 1,
+            }}
+          >🌿</motion.span>
+
+          {/* Daun kanan */}
+          <motion.span
+            initial={{ opacity: 0, scale: 0 }}
+            animate={showContent ? { opacity: 0.5, scale: 1 } : {}}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            style={{
+              position: 'absolute',
+              right: '3%',
+              top: '40%',
+              fontSize: '38px',
+              transform: 'rotate(40deg)',
+              zIndex: 1,
+            }}
+          >🌿</motion.span>
+
+          {/* Daun kecil */}
+          <motion.span
+            initial={{ opacity: 0, scale: 0 }}
+            animate={showContent ? { opacity: 0.4, scale: 1 } : {}}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            style={{
+              position: 'absolute',
+              left: '10%',
+              top: '52%',
+              fontSize: '26px',
+              transform: 'rotate(-30deg)',
+              zIndex: 1,
+            }}
+          >🍃</motion.span>
+
+          <motion.span
+            initial={{ opacity: 0, scale: 0 }}
+            animate={showContent ? { opacity: 0.4, scale: 1 } : {}}
+            transition={{ delay: 1, duration: 0.5 }}
+            style={{
+              position: 'absolute',
+              right: '10%',
+              top: '50%',
+              fontSize: '26px',
+              transform: 'rotate(30deg)',
+              zIndex: 1,
+            }}
+          >🍃</motion.span>
+
+          {/* Sparkles */}
+          {showContent && [...Array(8)].map((_, i) => (
+            <motion.span
+              key={`sparkle-${i}`}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ 
+                opacity: [0, 0.9, 0],
+                scale: [0.3, 1, 0.3],
+                y: [0, -30],
+                x: [0, (i % 2 === 0 ? 20 : -20)]
+              }}
+              transition={{
+                delay: 1.5 + i * 0.5,
+                duration: 2.5,
+                repeat: Infinity,
+                repeatDelay: 2
+              }}
+              style={{
+                position: 'absolute',
+                left: `${20 + i * 8}%`,
+                top: `${30 + (i % 3) * 15}%`,
+                fontSize: '12px',
+                zIndex: 3,
+                pointerEvents: 'none',
+              }}
+            >
+              ✨
+            </motion.span>
+          ))}
+
+          {/* Bungkus bawah */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={showContent ? { scaleY: 1 } : {}}
+            transition={{ delay: 1.2, duration: 0.6, type: 'spring', stiffness: 130 }}
+            style={{
+              position: 'absolute',
+              bottom: '5%',
+              left: '20%',
+              width: '60%',
+              height: '20%',
+              background: 'linear-gradient(180deg, #efe4d4 0%, #e0d2bd 60%, #d4c5aa 100%)',
+              borderRadius: '0 0 16px 16px',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+              zIndex: 0,
+              transformOrigin: 'bottom',
+            }}
+          />
+
+          {/* Pita */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            animate={showContent ? { scale: 1, rotate: 0 } : {}}
+            transition={{ delay: 2, type: 'spring', stiffness: 180, damping: 12 }}
+            style={{
+              position: 'absolute',
+              bottom: '16%',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              zIndex: 5,
+              fontSize: '30px',
+              filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.35))',
+            }}
+          >
+            🎀
+          </motion.div>
+        </motion.div>
+
+        {/* Pesan */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={showContent ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 2.5, duration: 0.6, type: 'spring' }}
+          style={{
+            textAlign: 'center',
+            background: 'rgba(255,255,255,0.9)',
+            padding: '18px 28px',
+            borderRadius: '14px',
+            boxShadow: '0 6px 24px rgba(0,0,0,0.2)',
+            marginTop: '24px',
+            maxWidth: '300px',
+          }}
+        >
+          <p style={{
+            fontFamily: '"Caveat", cursive',
+            fontSize: 'clamp(1.4rem, 3vw, 1.8rem)',
+            color: '#c4956a',
+            margin: '0 0 4px',
+            fontWeight: 700,
+          }}>
+            flowers for you 🌹
+          </p>
+          <p style={{
+            fontFamily: '"Caveat", cursive',
+            fontSize: '0.9rem',
+            color: '#8a7060',
+            margin: '2px 0',
+          }}>
+          
+          </p>
+          <p style={{
+            fontFamily: '"Caveat", cursive',
+            fontSize: '1.2rem',
+            color: '#e8a598',
+            margin: '6px 0 0',
+            fontWeight: 600,
+          }}>
+          
+          </p>
+        </motion.div>
+
+        {/* Tombol tutup */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3 }}
+          onClick={onClose}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          style={{
+            marginTop: '20px',
+            fontFamily: '"Caveat", cursive',
+            fontSize: '1rem',
+            padding: '8px 28px',
+            background: 'rgba(255,255,255,0.15)',
+            border: '1px solid rgba(255,255,255,0.3)',
+            borderRadius: '20px',
+            color: '#fff',
+            cursor: 'pointer',
+            backdropFilter: 'blur(8px)',
+          }}
+        >
+          tutup ✕
+        </motion.button>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
 // Book cover
 function BookCover({ isOpened, onOpen }) {
   return (
@@ -1144,24 +1474,7 @@ function VideoSection() {
             }} />
           </div>
 
-          <button
-            onClick={() => setVideoSrc(null)}
-            style={{
-              marginTop: '20px',
-              background: 'transparent',
-              border: '1.5px dashed rgba(0,0,0,0.2)',
-              borderRadius: '4px',
-              padding: '8px 20px',
-              fontFamily: '"Caveat", cursive',
-              fontSize: '1rem',
-              color: '#8a7060',
-              cursor: 'pointer',
-              display: 'block',
-              marginLeft: 'auto',
-            }}
-          >
-            ganti video
-          </button>
+
         </motion.div>
       )}
     </section>
