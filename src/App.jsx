@@ -188,25 +188,29 @@ function App() {
     <div style={styles.container}>
       
       <header style={styles.header}>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}>
-          <h1 style={styles.title}>Mahesa & Ika</h1>
-          <p style={styles.subtitle}>Our First Month Archive</p>
-          {/* PLAYER SPOTIFY - Sudah disesuaikan biar pas */}
-    <div style={{ marginTop: '30px', width: '320px', borderRadius: '12px', overflow: 'hidden' }}>
+  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}>
+    <h1 style={styles.title}>Mahesa & Kai</h1>
+    <p style={styles.subtitle}>Our First Month Archive</p>
+
+    {/* PLAYER LAGU KITA (Sheila On 7 - Kita) */}
+    <div style={{ marginTop: '30px', width: '320px', borderRadius: '12px', overflow: 'hidden', backgroundColor: '#1a1a1a', padding: '10px' }}>
       <iframe
-        style={{ borderRadius: '12px' }} 
-        src="https://open.spotify.com/embed/track/6e1FbhEE8vsjY0xySPWWEk?utm_source=generator"
         width="100%"
-        height="152" // Aku ganti 152 biar gak terlalu makan tempat
+        height="80"
+        src="https://www.youtube.com/embed/iDWaNjyu5o4?controls=0&showinfo=0&rel=0"
+        title="Sheila On 7 - Kita"
         frameBorder="0"
-        allowFullScreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        style={{ borderRadius: '8px' }}
       ></iframe>
+      <p style={{ fontSize: '9px', marginTop: '8px', opacity: 0.4, letterSpacing: '1px' }}>
+        Now Playing: Sheila On 7 - Kita 🎵
+      </p>
     </div>
-          <div style={{ width: '40px', height: '1px', backgroundColor: '#333', margin: '30px auto' }}></div>
-        </motion.div>
-      </header>
+
+    <div style={{ width: '40px', height: '1px', backgroundColor: '#333', margin: '30px auto' }}></div>
+  </motion.div>
+</header>
 
       <main style={styles.main}>
         {stories.map((story, idx) => (
