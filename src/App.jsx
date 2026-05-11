@@ -1738,7 +1738,7 @@ export default function App() {
         </footer>
       </motion.div>
 
-      {/* Rose Bouquet Modal */}
+      {/* Rose Bouquet Modals */}
       <RoseBouquet show={showRoses} onClose={() => setShowRoses(false)} />
     </div>
   );
